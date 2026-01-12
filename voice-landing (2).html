@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOICE | AI Transformation with Worker Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --teal: #0F766E;
+      --teal-light: #14B8A6;
+      --teal-bright: #2DD4BF;
+      --purple: #7C3AED;
+      --purple-light: #A78BFA;
+      --coral: #E25D3E;
+      --dark: #0A0A0A;
+      --cream: #FFF9F0;
+      --gray: #525252;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Instrument Sans', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: linear-gradient(135deg, var(--teal) 0%, #0A5B54 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(226, 93, 62, 0.12) 0%, transparent 50%);
+      animation: pulseGlow 8s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .logo {
+      display: inline-block;
+      margin-bottom: 3rem;
+      animation: fadeIn 1s ease-out 0.3s both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .logo svg {
+      width: 100px;
+      height: 100px;
+      filter: drop-shadow(0 4px 20px rgba(0,0,0,0.2));
+    }
+
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.2rem, 7vw, 4.5rem);
+      font-weight: 700;
+      color: white;
+      line-height: 1.15;
+      margin-bottom: 2rem;
+      letter-spacing: -0.02em;
+      animation: fadeInUp 1.2s ease-out 0.2s both;
+      max-width: 1000px;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      color: rgba(255, 255, 255, 0.95);
+      margin-bottom: 0;
+      max-width: 850px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 400;
+      line-height: 1.6;
+      animation: fadeInUp 1.2s ease-out 0.4s both;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 4rem;
+      animation: fadeInUp 1.2s ease-out 0.6s both;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Fraunces', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--teal-bright);
+      display: block;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-10px); }
+      60% { transform: translateX(-50%) translateY(-5px); }
+    }
+
+    .scroll-indicator svg {
+      width: 24px;
+      height: 24px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Section Styles */
+    section {
+      padding: 8rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .section-eyebrow {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--teal);
+      margin-bottom: 1rem;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+      letter-spacing: -0.02em;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .problem-section {
+      background: white;
+      border-radius: 24px;
+      padding: 6rem 4rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      margin-bottom: 4rem;
+    }
+
+    .problem-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .problem-stat {
+      padding: 2rem;
+      background: var(--cream);
+      border-radius: 16px;
+      border-left: 4px solid var(--coral);
+    }
+
+    .problem-stat-number {
+      font-family: 'Fraunces', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--coral);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .problem-stat-text {
+      color: var(--gray);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Protocol Cards */
+    .protocol-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .protocol-card {
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .protocol-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    }
+
+    .protocol-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-bright));
+    }
+
+    .protocol-card:nth-child(2)::before {
+      background: linear-gradient(90deg, var(--purple), var(--purple-light));
+    }
+
+    .protocol-card:nth-child(3)::before {
+      background: linear-gradient(90deg, var(--teal), var(--teal-bright));
+    }
+
+    .protocol-card:nth-child(4)::before {
+      background: linear-gradient(90deg, var(--purple), var(--purple-light));
+    }
+
+    .protocol-weeks {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--teal);
+      background: rgba(15, 118, 110, 0.1);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+    }
+
+    .protocol-card:nth-child(2) .protocol-weeks,
+    .protocol-card:nth-child(4) .protocol-weeks {
+      color: var(--purple);
+      background: rgba(124, 58, 237, 0.1);
+    }
+
+    .protocol-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    .protocol-description {
+      color: var(--gray);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .protocol-deliverable {
+      background: var(--cream);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    .deliverable-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray);
+      margin-bottom: 0.5rem;
+    }
+
+    .deliverable-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .protocol-career {
+      font-size: 0.95rem;
+      color: var(--gray);
+      padding-top: 1.5rem;
+      border-top: 1px solid #E5E5E5;
+    }
+
+    .protocol-career strong {
+      color: var(--teal);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .protocol-card:nth-child(2) .protocol-career strong,
+    .protocol-card:nth-child(4) .protocol-career strong {
+      color: var(--purple);
+    }
+
+    /* Value Prop Section */
+    .value-section {
+      background: linear-gradient(135deg, var(--dark) 0%, #1A1A1A 100%);
+      color: white;
+      border-radius: 24px;
+      padding: 6rem 4rem;
+      margin: 4rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .value-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: radial-gradient(circle at 100% 50%, rgba(124, 58, 237, 0.15) 0%, transparent 70%);
+    }
+
+    .value-section h2 {
+      color: white;
+      position: relative;
+      z-index: 1;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .value-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 2.5rem;
+    }
+
+    .value-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal-bright);
+      margin-bottom: 1rem;
+    }
+
+    .value-card:nth-child(2) .value-label {
+      color: var(--purple-light);
+    }
+
+    .value-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .value-description {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+    }
+
+    .value-list {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+
+    .value-list li {
+      padding-left: 1.5rem;
+      margin-bottom: 0.8rem;
+      position: relative;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .value-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--teal-bright);
+      font-weight: 700;
+    }
+
+    /* Team Section */
+    .team-section {
+      padding: 6rem 2rem;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .team-card {
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+
+    .team-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), var(--teal-bright));
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fraunces', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .team-card:nth-child(2) .team-avatar {
+      background: linear-gradient(135deg, var(--purple), var(--purple-light));
+    }
+
+    .team-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    .team-role {
+      color: var(--teal);
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .team-card:nth-child(2) .team-role {
+      color: var(--purple);
+    }
+
+    .team-bio {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--coral) 0%, #C64D2F 100%);
+      color: white;
+      border-radius: 24px;
+      padding: 6rem 4rem;
+      text-align: center;
+      margin: 4rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(124, 58, 237, 0.2) 0%, transparent 60%);
+    }
+
+    .cta-section h2 {
+      color: white;
+      position: relative;
+      z-index: 1;
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    .cta-text {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 700px;
+      margin: 2rem auto;
+      position: relative;
+      z-index: 1;
+      line-height: 1.7;
+    }
+
+    .cta-stats {
+      display: flex;
+      gap: 4rem;
+      justify-content: center;
+      margin-top: 3rem;
+      position: relative;
+      z-index: 1;
+      flex-wrap: wrap;
+    }
+
+    .cta-stat {
+      text-align: center;
+    }
+
+    .cta-stat-number {
+      font-family: 'Fraunces', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: white;
+      display: block;
+      line-height: 1;
+    }
+
+    .cta-stat-label {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 0.5rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: 4rem 2rem;
+      text-align: center;
+      color: var(--gray);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--teal);
+    }
+
+    .footer-text {
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      section {
+        padding: 4rem 1.5rem;
+      }
+
+      .problem-section,
+      .value-section,
+      .cta-section {
+        padding: 3rem 2rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      .hero-stats,
+      .cta-stats {
+        gap: 2rem;
+      }
+
+      .protocol-grid,
+      .team-grid,
+      .value-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Scroll animations */
+    .fade-in-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 249, 240, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid rgba(15, 118, 110, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    header.hidden {
+      transform: translateY(-100%);
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    .header-logo svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .header-nav a {
+      color: var(--gray);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .header-nav a:hover {
+      color: var(--teal);
+    }
+
+    /* Adjust hero for header */
+    .hero {
+      margin-top: 0;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem 1.5rem;
+      }
+
+      .header-nav {
+        display: none;
+      }
+
+      .header-logo {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <a href="#" class="header-logo">
+        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M60 60 a6 6 0 0 1 6 6 a12 12 0 0 1 -12 12 a18 18 0 0 1 -18 -18 a24 24 0 0 1 24 -24 a30 30 0 0 1 30 30 a36 36 0 0 1 -36 36 a42 42 0 0 1 -42 -42 a48 48 0 0 1 48 -48" 
+                stroke="url(#spiralGradHeader)" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="spiralGradHeader" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#E25D3E"/>
+              <stop offset="33%" style="stop-color:#7C3AED"/>
+              <stop offset="66%" style="stop-color:#2DD4BF"/>
+              <stop offset="100%" style="stop-color:#0F766E"/>
+            </linearGradient>
+          </defs>
+          <circle cx="60" cy="60" r="5" fill="#0F766E"/>
+        </svg>
+        VOICE
+      </a>
+      <nav class="header-nav">
+        <a href="#problem">The Challenge</a>
+        <a href="#solution">Our Approach</a>
+        <a href="#protocol">The Protocol</a>
+        <a href="#team">Team</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="logo">
+        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 140px; height: 140px;">
+          <path d="M60 60 a6 6 0 0 1 6 6 a12 12 0 0 1 -12 12 a18 18 0 0 1 -18 -18 a24 24 0 0 1 24 -24 a30 30 0 0 1 30 30 a36 36 0 0 1 -36 36 a42 42 0 0 1 -42 -42 a48 48 0 0 1 48 -48" 
+                stroke="url(#spiralGrad)" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="spiralGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#E25D3E"/>
+              <stop offset="33%" style="stop-color:#7C3AED"/>
+              <stop offset="66%" style="stop-color:#2DD4BF"/>
+              <stop offset="100%" style="stop-color:#ffffff"/>
+            </linearGradient>
+          </defs>
+          <circle cx="60" cy="60" r="5" fill="white"/>
+        </svg>
+      </div>
+      
+      <h1>AI transformation is happening now.<br>Workers deserve a voice in it.</h1>
+      <p class="hero-subtitle">
+        A structured methodology that preserves worker expertise while building the skills organizations need to implement AI successfully.
+      </p>
+    </div>
+
+    <div class="scroll-indicator">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section id="problem">
+    <div class="problem-section fade-in-scroll">
+      <span class="section-eyebrow">The Crisis</span>
+      <h2>AI transformation is failing workers and organizations alike</h2>
+      <p style="font-size: 1.2rem; color: var(--gray); max-width: 800px; line-height: 1.7;">
+        Right now, AI transformation is a crisis for everyone involved. Managers are told to "implement AI" with no roadmap. Workers get termination dates with no preparation. Organizations lose critical expertise before they understand what they had.
+      </p>
+
+      <div class="problem-stats">
+        <div class="problem-stat">
+          <span class="problem-stat-number">80%</span>
+          <p class="problem-stat-text">of AI projects fail to meet their goals—twice the failure rate of non-AI technology projects</p>
+        </div>
+        <div class="problem-stat">
+          <span class="problem-stat-number">70%</span>
+          <p class="problem-stat-text">of managers say their workforce isn't ready for AI transformation</p>
+        </div>
+        <div class="problem-stat">
+          <span class="problem-stat-number">30%</span>
+          <p class="problem-stat-text">of customer support roles will be automated by 2030, with entry-level employment already down 20%</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+  <section id="solution">
+    <div class="fade-in-scroll">
+      <span class="section-eyebrow">The Solution</span>
+      <h2>VOICE is to AI transformation what Agile is to software development</h2>
+      <p style="font-size: 1.2rem; color: var(--gray); max-width: 900px; line-height: 1.7; margin-bottom: 3rem;">
+        A structured 12-week methodology with defined roles, phases, and deliverables that turns chaotic organizational change into a manageable, repeatable process. Workers rotate through four practitioner roles, building marketable skills while producing critical organizational intelligence.
+      </p>
+
+      <div style="display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap; margin-top: 3rem;">
+        <div style="text-align: center; padding: 2rem; background: white; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.06); min-width: 200px;">
+          <div style="font-family: 'Fraunces', serif; font-size: 3.5rem; font-weight: 700; color: var(--teal); line-height: 1;">12</div>
+          <div style="font-size: 0.9rem; color: var(--gray); margin-top: 0.5rem; font-weight: 500;">Week Protocol</div>
+        </div>
+        <div style="text-align: center; padding: 2rem; background: white; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.06); min-width: 200px;">
+          <div style="font-family: 'Fraunces', serif; font-size: 3.5rem; font-weight: 700; color: var(--purple); line-height: 1;">4</div>
+          <div style="font-size: 0.9rem; color: var(--gray); margin-top: 0.5rem; font-weight: 500;">Practitioner Roles</div>
+        </div>
+        <div style="text-align: center; padding: 2rem; background: white; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.06); min-width: 200px;">
+          <div style="font-family: 'Fraunces', serif; font-size: 3.5rem; font-weight: 700; color: var(--coral); line-height: 1;">4</div>
+          <div style="font-size: 0.9rem; color: var(--gray); margin-top: 0.5rem; font-weight: 500;">Career Pathways</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Protocol Section -->
+  <section id="protocol">
+    <div class="fade-in-scroll">
+      <span class="section-eyebrow">The Protocol</span>
+      <h2>Four roles. Four deliverables. Four career pathways.</h2>
+      
+      <div class="protocol-grid">
+        <div class="protocol-card">
+          <span class="protocol-weeks">Weeks 1-3</span>
+          <h3 class="protocol-title">Knowledge Cartographer</h3>
+          <p class="protocol-description">
+            Document your expertise using AI-guided prompts. When do you escalate? How do you read customer cues? Which workarounds actually work? What patterns do you recognize?
+          </p>
+          <div class="protocol-deliverable">
+            <div class="deliverable-label">Deliverable</div>
+            <div class="deliverable-name">Expertise Map</div>
+          </div>
+          <div class="protocol-career">
+            <strong>→ AI Trainer</strong>
+            $84K median · 26% growth through 2033
+          </div>
+        </div>
+
+        <div class="protocol-card">
+          <span class="protocol-weeks">Weeks 4-6</span>
+          <h3 class="protocol-title">AI Auditor</h3>
+          <p class="protocol-description">
+            Test AI tools on your actual work. Record what works, what fails, and why. Where does AI miss nuance? When is human judgment essential?
+          </p>
+          <div class="protocol-deliverable">
+            <div class="deliverable-label">Deliverable</div>
+            <div class="deliverable-name">AI Limitation Log</div>
+          </div>
+          <div class="protocol-career">
+            <strong>→ AI Quality Specialist</strong>
+            25% annual job growth
+          </div>
+        </div>
+
+        <div class="protocol-card">
+          <span class="protocol-weeks">Weeks 7-9</span>
+          <h3 class="protocol-title">Workflow Architect</h3>
+          <p class="protocol-description">
+            Design how humans and AI should divide tasks. Create recommendations grounded in your Phase 1-2 findings. What hybrid approaches work best?
+          </p>
+          <div class="protocol-deliverable">
+            <div class="deliverable-label">Deliverable</div>
+            <div class="deliverable-name">Workflow Blueprint</div>
+          </div>
+          <div class="protocol-career">
+            <strong>→ Human-AI Workflow Designer</strong>
+            Emerging high-demand role
+          </div>
+        </div>
+
+        <div class="protocol-card">
+          <span class="protocol-weeks">Weeks 10-12</span>
+          <h3 class="protocol-title">Transformation Guide</h3>
+          <p class="protocol-description">
+            Mentor the next cohort through weeks 1-9. Knowledge cascades internally, building permanent organizational capacity.
+          </p>
+          <div class="protocol-deliverable">
+            <div class="deliverable-label">Deliverable</div>
+            <div class="deliverable-name">Competency Portfolio</div>
+          </div>
+          <div class="protocol-career">
+            <strong>→ AI Change Management</strong>
+            Critical emerging field
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Proposition -->
+  <section>
+    <div class="value-section">
+      <h2>VOICE solves both problems with a single framework</h2>
+      
+      <div class="value-grid">
+        <div class="value-card">
+          <div class="value-label">For Organizations</div>
+          <h3 class="value-title">Critical Business Intelligence</h3>
+          <p class="value-description">
+            VOICE produces three critical outputs that directly inform smarter AI deployment:
+          </p>
+          <ul class="value-list">
+            <li><strong>Knowledge Inventory:</strong> Document expertise before it walks out the door</li>
+            <li><strong>AI Readiness Assessment:</strong> Validated data on where AI actually works versus fails</li>
+            <li><strong>Implementation Roadmap:</strong> Worker-designed recommendations for human-AI task allocation</li>
+          </ul>
+        </div>
+
+        <div class="value-card">
+          <div class="value-label">For Workers</div>
+          <h3 class="value-title">Marketable Skills & Agency</h3>
+          <p class="value-description">
+            Each role builds competencies for growing career paths and produces tangible proof of capabilities:
+          </p>
+          <ul class="value-list">
+            <li><strong>Skills employers are hiring for:</strong> AI training, quality assurance, workflow design, change management</li>
+            <li><strong>Portable credentials:</strong> Competency Portfolio with concrete artifacts demonstrating capabilities</li>
+            <li><strong>Agency in transformation:</strong> Workers shape how AI is implemented, not just experience it</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Learning Science Foundation -->
+  <section>
+    <div class="fade-in-scroll">
+      <span class="section-eyebrow">Evidence-Based Design</span>
+      <h2>Grounded in learning science, designed for real-world impact</h2>
+      <p style="font-size: 1.2rem; color: var(--gray); max-width: 900px; line-height: 1.7; margin-bottom: 3rem;">
+        VOICE operationalizes three foundational learning science frameworks: Piaget's Constructivism (workers build knowledge through direct AI testing), Lave & Wenger's Situated Learning (Phase 4 creates communities of practice where experienced workers mentor newcomers), and Nonaka's Knowledge Externalization (structured reflection transforms tacit expertise into documented credentials).
+      </p>
+
+      <div style="background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 10px 40px rgba(0,0,0,0.06); max-width: 800px; margin: 0 auto;">
+        <div style="display: flex; align-items: center; gap: 3rem;">
+          <div style="flex: 1;">
+            <h3 style="font-family: 'Fraunces', serif; font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark);">Why context matters</h3>
+            <p style="color: var(--gray); line-height: 1.7;">
+              Generic reskilling programs have 70% dropout rates because they decontextualize learning. VOICE embeds skill-building in real work, with immediate application and social support structures that research shows are essential for transfer.
+            </p>
+          </div>
+          <div style="text-align: center; padding-left: 3rem; border-left: 3px solid var(--teal);">
+            <div style="font-family: 'Fraunces', serif; font-size: 4rem; font-weight: 700; color: var(--teal); line-height: 1;">70%</div>
+            <div style="font-size: 0.9rem; color: var(--gray); margin-top: 0.5rem;">typical reskilling<br>dropout rate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section" id="team">
+    <div class="fade-in-scroll">
+      <span class="section-eyebrow">The Team</span>
+      <h2>Stanford GSE graduate students bridging innovation, education, and workforce development</h2>
+      
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">C</div>
+          <h3 class="team-name">Caroline Bellacosa</h3>
+          <p class="team-role">Project Lead · MS Learning, Design, and Technology '26</p>
+          <p class="team-bio">
+            Industrial Engineering background with 10+ years at the intersection of innovation, tech, and education. Led AI adoption initiatives through learning experience design and AI product co-development at philanthropic foundations.
+          </p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar">M</div>
+          <h3 class="team-name">Madhura Padwal</h3>
+          <p class="team-role">Co-Creator · MS Learning, Design, and Technology '26</p>
+          <p class="team-bio">
+            Economics and education background with experience in impact evaluation and education policy. Focused on equitable pathways and learning systems that serve diverse learners.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="impact">
+    <div class="cta-section">
+      <h2>AI transformation is happening now.<br>Workers deserve a voice in it.</h2>
+      <p class="cta-text">
+        VOICE gives displaced workers agency, documents the expertise organizations need, and builds skills for the jobs that are growing. Just as Agile transformed software development, VOICE can transform how we navigate AI workforce change.
+      </p>
+
+      <div class="cta-stats">
+        <div class="cta-stat">
+          <span class="cta-stat-number">50+</span>
+          <span class="cta-stat-label">Workers Targeted</span>
+        </div>
+        <div class="cta-stat">
+          <span class="cta-stat-number">$50K</span>
+          <span class="cta-stat-label">Grant Request</span>
+        </div>
+        <div class="cta-stat">
+          <span class="cta-stat-number">12</span>
+          <span class="cta-stat-label">Month Timeline</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">VOICE</div>
+      <div class="footer-text">
+        Madhura Padwal & Caroline Bellacosa · Stanford GSE · January 2026
+      </div>
+      <div class="footer-text">
+        Stanford Create+AI Challenge Submission
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll behavior
+    let lastScroll = 0;
+    const header = document.querySelector('header');
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll <= 0) {
+        header.classList.remove('hidden');
+        return;
+      }
+      
+      if (currentScroll > lastScroll && currentScroll > 100) {
+        header.classList.add('hidden');
+      } else {
+        header.classList.remove('hidden');
+      }
+      
+      lastScroll = currentScroll;
+    });
+
+    // Scroll animation observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Smooth scroll for any future navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
